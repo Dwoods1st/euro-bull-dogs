@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.old-english-font {
+  font-family: 'UnifrakturMaguntia', 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* UK themed colors */
+  --uk-blue: hsl(222, 82%, 39%);
+  --uk-green: hsl(158, 94%, 27%);
+  --uk-red: hsl(0, 73%, 50%);
+  --warm-cream: hsl(50, 85%, 93%);
+  --warm-gold: hsl(46, 93%, 77%);
+}
+
+/* Paw Print Animations */
+@keyframes pawFloat {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes pawTrail {
+  0% {
+    transform: translateX(-50px) translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(50px) translateY(-50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pawBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-10px) scale(1.1);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+.paw-print-float {
+  animation: pawFloat 6s ease-in-out infinite;
+}
+
+.paw-trail {
+  animation: pawTrail linear infinite;
+}
+
+.paw-bounce {
+  animation: pawBounce 2s ease-in-out infinite;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .uk-blue {
+    color: var(--uk-blue);
+  }
+  
+  .bg-uk-blue {
+    background-color: var(--uk-blue);
+  }
+  
+  .uk-green {
+    color: var(--uk-green);
+  }
+  
+  .bg-uk-green {
+    background-color: var(--uk-green);
+  }
+  
+  .uk-red {
+    color: var(--uk-red);
+  }
+  
+  .bg-uk-red {
+    background-color: var(--uk-red);
+  }
+  
+  .bg-warm-cream {
+    background-color: var(--warm-cream);
+  }
+  
+  .bg-warm-gold {
+    background-color: var(--warm-gold);
+  }
+}
+
+/* Paw Print Animations */
+@keyframes paw-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.paw-print-float {
+  animation: paw-float 4s ease-in-out infinite;
+}
+
+@keyframes paw-trail {
+  0% {
+    transform: translateY(100vh) translateX(-20px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.paw-trail {
+  animation: paw-trail 8s linear infinite;
+}
+
+/* Dog Toy Animations */
+@keyframes toy-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-8px) rotate(10deg) scale(1.1);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-8deg) scale(0.95);
+  }
+}
+
+.toy-float {
+  animation: toy-float 6s ease-in-out infinite;
+}
+
+@keyframes toy-trail {
+  0% {
+    transform: translateY(100vh) translateX(-30px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(30px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.toy-trail {
+  animation: toy-trail 12s linear infinite;
+}
